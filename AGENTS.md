@@ -5,20 +5,16 @@
 ## Orientation
 
 **This repo is one of several `kyriakon-*` repos, cloned as siblings.** Read the meta repo first
-for
-anything beyond a small, well-scoped change:
-`../kyriakon/docs/decisions/kyriakon-net-project-proposal.md`
+for anything beyond a small, well-scoped change: `../kyriakon/docs/decisions/kyriakon-net-project-proposal.md`
 and `../kyriakon/docs/CONTEXT.md`. If `../kyriakon` isn't present alongside this repo, say so
-rather
-than guessing at proposal content.
+rather than guessing at proposal content.
 
 ## Build & test
 
 - Static site; no build step for plain HTML/CSS/markdown. If a generator is introduced later, its
   build/test commands go here.
 - The site promotes Kleio as the recommended password manager for `pass` repos hosted on
-kyriakon.net
-  (proposal §3, §7) — a copy/content requirement that must stay accurate against the live
+kyriakon.net (proposal §3, §7) — a copy/content requirement that must stay accurate against the live
 offering.
 
 ## Code style
