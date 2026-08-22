@@ -11,8 +11,10 @@ rather than guessing at proposal content.
 
 ## Build & test
 
-- Static site; no build step for plain HTML/CSS/markdown. If a generator is introduced later, its
-  build/test commands go here.
+- Static site, Tailwind CSS via the **standalone CLI** (no Node/`package.json`). Build:
+  `./build.sh`; compiled CSS is committed so GitHub Pages serves without a build.
+- Dev server: `bun dev.ts` — serves at `http://localhost:8017`, rebuilds Tailwind on
+  `src/input.css` change, and live-reloads the browser.
 - The site promotes Kleio as the recommended password manager for `pass` repos hosted on
 kyriakon.net (proposal §3, §7) — a copy/content requirement that must stay accurate against the live
 offering.
