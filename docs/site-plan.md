@@ -14,7 +14,9 @@ the OpenBSD box's `httpd` (proposal §9, Phase 2).
   Kleio full-width below) + `/hosting/`, `/press/`, `/kleio/` under-construction pages
   (fully centred on screen, "Still under construction - check back soon! 🏗️").
 - **Brand**: the ☧ Chi-Rho mark rendered as a text glyph (crimson, bold, `scale-x-125`,
-  arrow cursor); `assets/kyriakon.png` kept as the favicon.
+  arrow cursor); favicon is `assets/favicon.svg` (crimson, `scale(1.25 1)`) with
+  `assets/favicon.png` as the PNG fallback, plus `assets/kyriakon-black.png` for the
+  GitHub profile avatar.
 - **Colour**: burgundy/crimson `#7b1e26` primary, muted liturgical gold `#b8860b` secondary,
   warm off-white `#faf7f2` background, near-black ink `#1c1a17`.
 - **Typography**: serif display stack (`Iowan Old Style`/Palatino/Georgia) + system sans body.
