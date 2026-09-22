@@ -49,4 +49,4 @@ Audit us. Every non-secret piece of infrastructure config is published, includin
 
 => mailto:hello@kyriakon.net hello@kyriakon.net
 
-=> https://kyriakon.net the same pages over HTTPS
+=> https://kyriakon.net HTTPS mirror
