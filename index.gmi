@@ -1,0 +1,35 @@
+# Kyriakon.net
+
+Secure email, static web hosting, and pass repositories.
+Principled hosting, run by Orthodox Christians.
+
+## Secure email and hosting
+
+Prioritize your privacy with secure zero-access mail - built to last, security by
+design. Your subscription also includes static web hosting and gemini for a simple
+web presence.
+
+Built on OpenBSD. £20 / Year.
+
+## Kyriakon Press
+
+Orthodox liturgical and catechetical publishing.
+
+## Kleio
+
+The pass-compatible password manager we recommend for communal security. Built for
+longevity with open-source stewardship.
+
+=> https://github.com/kyriakon/kleio Kleio source repository
+
+> Secure email, server configuration you can audit yourself, and Orthodox admins you
+> can actually meet.
+
+Audit us. Every non-secret piece of infrastructure config is published, including
+the configuration of the server you are reading this from.
+
+=> https://github.com/kyriakon/kyriakon-infra kyriakon-infra on GitHub
+
+hello@kyriakon.net
+
+Also served over HTTPS at https://kyriakon.net
