@@ -18,7 +18,9 @@
      :hWWXWWXWWh:
    :hWWh:oWWo:hWWh:
  :hWWh:  oWWo  :hWWh:
- :kk:            :kk:
+ :kk:    oWWo    :kk:
+         oWWo
+         oWWo
 ```
 
 # Kyriakon.net
