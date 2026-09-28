@@ -46,16 +46,17 @@ chmod 600 /root/.ssh/authorized_keys
 grep -qF "$KEY" /root/.ssh/authorized_keys || echo "$KEY" >> /root/.ssh/authorized_keys
 printf 'authorized_keys holds %s line(s)\n' "$(wc -l < /root/.ssh/authorized_keys | tr -d ' ')"
 
-echo "== reloading sshd, which reads its config only at startup =="
-# Without this the file is correct and the running daemon still refuses root, so
-# ssh fails with the same message as if the edit had never happened. sshd
-# re-executes on SIGHUP, which re-reads the config without dropping connections.
-if [ -f /var/run/sshd.pid ]; then
-	kill -HUP "$(cat /var/run/sshd.pid)" && echo "sent SIGHUP to sshd"
-else
-	rcctl restart sshd && echo "restarted sshd"
+echo "== restarting sshd, which reads its config only at startup =="
+# sshd holds sshd_config in memory from the moment it starts, so editing the file
+# changes nothing until it re-reads. On this template that was the difference
+# between a key being accepted and the login being allowed, and it looked exactly
+# like the edit had never happened. A restart is unambiguous; a HUP is the
+# fallback if rcctl does not know the service.
+if ! rcctl restart sshd; then
+	kill -HUP "$(cat /var/run/sshd.pid)" && echo "rcctl could not restart it; sent SIGHUP instead"
 fi
 sleep 1
+printf 'sshd -T says: %s\n' "$(sshd -T 2>/dev/null | grep -i '^permitrootlogin')"
 echo "config now: $(grep '^PermitRootLogin' /etc/ssh/sshd_config)"
 ls -la /root/.ssh/ | sed -n '1,5p'
 
