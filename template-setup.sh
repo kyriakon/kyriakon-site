@@ -37,6 +37,19 @@ chmod 600 /root/.ssh/authorized_keys
 grep -qF "$KEY" /root/.ssh/authorized_keys || echo "$KEY" >> /root/.ssh/authorized_keys
 printf 'authorized_keys holds %s line(s)\n' "$(wc -l < /root/.ssh/authorized_keys | tr -d ' ')"
 
+echo "== reloading sshd, which reads its config only at startup =="
+# Without this the file is correct and the running daemon still refuses root, so
+# ssh fails with the same message as if the edit had never happened. sshd
+# re-executes on SIGHUP, which re-reads the config without dropping connections.
+if [ -f /var/run/sshd.pid ]; then
+	kill -HUP "$(cat /var/run/sshd.pid)" && echo "sent SIGHUP to sshd"
+else
+	rcctl restart sshd && echo "restarted sshd"
+fi
+sleep 1
+echo "config now: $(grep '^PermitRootLogin' /etc/ssh/sshd_config)"
+ls -la /root/.ssh/ | sed -n '1,5p'
+
 echo "== what the restore test needs =="
 pkg_add restic jq git || true
 for p in restic jq git; do
