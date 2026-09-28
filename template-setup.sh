@@ -76,5 +76,6 @@ ls -l /root/bin/
 
 echo
 echo "done."
-echo "Before snapshotting, confirm: ssh root@<this box> works with the key, then clear"
-echo "root's password with 'passwd -d root' if one was set, so no throwaway inherits it."
+echo "Before snapshotting, confirm: ssh root@<this box> works with the key, then lock"
+echo "root's password with "usermod -p '*' root" if one was set, so no throwaway inherits"
+echo "a console login. OpenBSD's passwd has no -d; keys keep working with a locked password."
