@@ -31,6 +31,22 @@ else
 fi
 grep -q '^PermitRootLogin prohibit-password' /etc/ssh/sshd_config || {
 	echo "could not set PermitRootLogin" >&2; exit 1; }
+
+# PermitRootLogin is an sshd_config directive. In ssh_config, which is the client's file,
+# ssh refuses to parse the file at all, so every outbound connection from the box fails,
+# including the sftp the restore test reaches the storage box over. One build put the line
+# in the wrong file by hand, and this script said nothing because it only ever checked the
+# server file. It checks both now, and proves the client file still parses.
+if grep -qi '^[[:space:]]*permitrootlogin[[:space:]]' /etc/ssh/ssh_config; then
+	sed -i '/^[[:space:]]*[Pp]ermit[Rr]oot[Ll]ogin[[:space:]]/d' /etc/ssh/ssh_config
+	grep -qi '^[[:space:]]*permitrootlogin[[:space:]]' /etc/ssh/ssh_config && {
+		echo "/etc/ssh/ssh_config still has a PermitRootLogin line this cannot remove" >&2
+		exit 1; }
+	echo "removed a stray PermitRootLogin from /etc/ssh/ssh_config, which would have"
+	echo "broken every outbound ssh from this box, restore test included"
+fi
+ssh -G localhost >/dev/null 2>&1 || { echo "/etc/ssh/ssh_config does not parse" >&2; exit 1; }
+printf 'ssh_config:   parses, %s lines\n' "$(grep -c . /etc/ssh/ssh_config | tr -d ' ')"
 printf 'file says:    %s\n' "$(grep '^PermitRootLogin' /etc/ssh/sshd_config)"
 printf 'sshd -T says: %s\n' "$(sshd -T 2>/dev/null | grep -i '^permitrootlogin')"
 printf 'file size:    %s bytes, %s lines\n' "$(wc -c < /etc/ssh/sshd_config | tr -d ' ')" "$(grep -c . /etc/ssh/sshd_config | tr -d ' ')"
@@ -58,6 +74,7 @@ fi
 sleep 1
 printf 'sshd -T says: %s\n' "$(sshd -T 2>/dev/null | grep -i '^permitrootlogin')"
 echo "config now: $(grep '^PermitRootLogin' /etc/ssh/sshd_config)"
+# shellcheck disable=SC2012  # a fixed, trusted directory, listed for a human to read
 ls -la /root/.ssh/ | sed -n '1,5p'
 
 echo "== what the restore test needs =="
