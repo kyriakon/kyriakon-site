@@ -21,10 +21,19 @@ KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFvWcMN1mB46y9E9diUw+c9S4AP0S7fYCvvwa1N
 [ -d /etc/ssh ] || { echo "not an installed system" >&2; exit 1; }
 
 echo "== root by key, not by password =="
-sed -i 's/^[[:space:]]*PermitRootLogin[[:space:]].*/PermitRootLogin prohibit-password/' /etc/ssh/sshd_config
+if grep -q '^[[:space:]]*PermitRootLogin[[:space:]]' /etc/ssh/sshd_config; then
+	sed -i 's/^[[:space:]]*PermitRootLogin[[:space:]].*/PermitRootLogin prohibit-password/' /etc/ssh/sshd_config
+else
+	# Absent entirely. The compiled default is already prohibit-password, but write
+	# it out so the file says what is actually in force, and so a config that lost
+	# the line cannot look like a config that never had one.
+	echo 'PermitRootLogin prohibit-password' >> /etc/ssh/sshd_config
+fi
 grep -q '^PermitRootLogin prohibit-password' /etc/ssh/sshd_config || {
 	echo "could not set PermitRootLogin" >&2; exit 1; }
-grep '^PermitRootLogin' /etc/ssh/sshd_config
+printf 'file says:    %s\n' "$(grep '^PermitRootLogin' /etc/ssh/sshd_config)"
+printf 'sshd -T says: %s\n' "$(sshd -T 2>/dev/null | grep -i '^permitrootlogin')"
+printf 'file size:    %s bytes, %s lines\n' "$(wc -c < /etc/ssh/sshd_config | tr -d ' ')" "$(grep -c . /etc/ssh/sshd_config | tr -d ' ')"
 
 echo "== the key, where sshd reads it =="
 # The installer sets AuthorizedKeysFile to .ssh/authorized_keys, so this is the
