@@ -1,0 +1,121 @@
+# Hosting
+
+Mail the platform cannot read, a static website, a gemini capsule and pass repositories. Run by one person, on one server, for the Orthodox community.
+
+## What this is
+
+Kyriakon.net is a hosting platform for the Orthodox community, run by one person: a sole trader in the United Kingdom, on a single server. It is built on OpenBSD, an account has no interactive shell, and every non-secret piece of the configuration is published on GitHub so that anyone can check the promises below against the thing that runs.
+
+=> https://github.com/kyriakon/kyriakon-infra kyriakon-infra on GitHub
+
+Every member gets the same four things: mail the platform cannot read, a static website, a gemini capsule, and pass-compatible git repositories.
+
+## Prices and what you get
+
+Prices are in pounds, and any VAT is included in the price rather than added to it. A paid subscription runs for one calendar year.
+
+### Individual, £20 a year
+
+One account with an address at kyriakon.net: a mailbox the platform cannot read, a static website and gemini capsule at yourname.kyriakon.net, and pass-compatible git repositories. 5 GB is shared across all of it.
+
+One address, for one person. Mail is live as soon as the account opens; the website waits on a certificate, which can take a day or three.
+
+### Your own domain, £40 a year
+
+Your own domain on the same infrastructure, for a parish, a monastery or a small Orthodox business: up to ten addresses, each mailbox carrying the standard 5 GB of its own, with mail, a website and a gemini capsule for that domain and a git repository for each account.
+
+You apply your own DNS records from a recipe written for someone who is not a sysadmin: MX, SPF, the DKIM selector, DMARC and A/AAAA. We do not host your domain's zone, and a domain whose records stop pointing here loses its mail and its certificate. An address that is an alias shares one mailbox, one key and one allowance; a separate mailbox has its own. An eleventh address is a second domain, not another line on this one.
+
+### A managed instance, £150 a year, by enquiry
+
+A server of your own rather than a share of ours, on the same platform and the same terms. It is ordered by hand.
+
+=> mailto:admin@kyriakon.net admin@kyriakon.net
+
+There is no self-service order and no waiting list.
+
+### No charge
+
+Priests, deacons, bishops, monastics, and anyone who cannot afford it, are not charged. Ask on the application; a person decides, and no means test and no proof is asked for. Granted once, it is permanent and never re-asked, and the same 5 GB allowance applies.
+
+A monastic community or a parish without means arrives the same way as a person, by the same decision on the same application.
+
+The offer stands as far as capacity allows. There is no fixed number of free accounts, and the operator reviews the free share once it passes about a fifth of the accounts. A free account ends only at your request, for a breach of the acceptable use policy, or if it is unreachable and unused for a year.
+
+## Mail the platform cannot read
+
+Mail is encrypted to your public key as it arrives, and the platform holds only that public key. What sits on the server is ciphertext to us: an order compelling the operator to hand over your mail produces ciphertext and no key. Your private key is made on your own device and never submitted, and there is no webmail, so you read mail in a PGP-capable client on your own machine.
+
+What that does not cover is who wrote to whom, when and how large. Mail cannot be routed without that envelope, so it is visible in the logs and in the outer message wrapper, and our logs are kept for seven days. It does not cover a message in flight or a copy already delivered to someone else's server, and it does not survive losing both your device and your written recovery phrase: there is no reset here, and no one can restore your mail.
+
+What made your key is not something we can verify, only the shape it has. A key that would break delivery is named in the signup and never used to refuse you, because a check we cannot verify would be a support queue rather than a guarantee.
+
+## Web, gemini and git
+
+Static web. Your site answers at yourname.kyriakon.net over HTTPS. Upload files with sftp on port 22 using your key; there is no control panel. Pages are static, with no scripting, no database and no CGI.
+
+gemini. Every hostname has a capsule, so your site is served a second way at gemini://yourname.kyriakon.net by gmid. This page has a capsule too.
+
+git. Your pass repositories live in your own tree and are reached over git-shell on port 2222 with the same key. The store is GPG-encrypted on your machine before it is pushed, so what arrives here is ciphertext and git metadata, never the plaintext. Kleio, the pass-compatible password manager we recommend, is one client for it.
+
+=> https://github.com/kyriakon/kleio Kleio source repository
+
+One upload key covers both sftp and git, and both are key-based, so without it you have mail and nothing else. The 5 GB is shared across mail, website, capsule and repositories. It is a soft limit, with a little headroom above it and a week to clear space before writes stop.
+
+## Your key
+
+You need two: a mail key, so mail can be encrypted to you, and an upload key, for the website and the repositories. Our walkthrough is written for someone who has never made a key. It covers Thunderbird on a desktop, where to export the public key from, and where the private key and its passphrase live afterwards.
+
+If you would rather keep away from a terminal, the walkthrough also offers a generator that makes the key in your browser. It is our own code: a small Rust crate in the repository, compiled to a WASM module and served from our own static tree, with no third-party script. The private key never leaves the page. It gives you the private key as a file to download, an eight-word passphrase to write down as your recovery phrase, and the public key to submit, and it can make the upload key as well.
+
+The generator never sends the private key, the passphrase or anything else anywhere, and you can check that yourself: the source is published, and the page makes no external request. A separate key-check page runs the same code, so you can test a key before you apply or before you rotate to it, and nothing you paste into it is uploaded.
+
+The downloaded file and the written phrase belong in separate places. Keep the phrase somewhere you would still have it if the device holding the file were lost. And since we see the shape of a key rather than what produced it, the signup names anything that will break delivery and lets you continue regardless.
+
+## Joining
+
+1. Apply. One form at signup.kyriakon.net, on the web and on gemini. It asks for the username you want, a contact address, your mail public key, an optional upload key, and how you would rather pay. A few optional questions about what you will use the account for make approval quicker, and a monastic application needs the elder's blessing. There is a place to say that you cannot pay.
+2. A person reads it. Every application is read by the operator, and the optional answers are weighed. The outcomes are approval on the paid tier, approval without charge, or decline. There is no belief test. A decline always carries the way back: reply, and a word from your priest or from someone we already know usually settles it.
+3. Approval, then payment. Approval opens the account and the mailbox. Card pays through Stripe in the same session. Cash pays by post or in hand, and Monero goes to a subaddress of your own; both of those get a reference token to send with the money, and card is the only rail that touches a payment processor. For Monero, the pound price is what you owe and the XMR figure is only its conversion, the quote holds for the payment window, and the payment is credited once the wallet sees ten confirmations.
+
+=> gemini://signup.kyriakon.net the application capsule
+
+=> https://signup.kyriakon.net the application form on the web
+
+You accept the terms, the acceptable use policy and the privacy notice on one checkbox when you apply.
+
+Payment has fourteen days. If the money does not arrive the account lapses: mail keeps arriving and stays readable, the website stays up, sending and uploading and pushing stop, and nothing is deleted. Paying restores it.
+
+Hosting waits on a certificate. Certificates are issued at a limited rate, so a new site can take a day or three to answer on HTTPS; the account page says so while it waits. Mail is live at approval.
+
+One limit on who may apply: applications from residents of countries under UK sanctions are declined, and the reviewer checks the consolidated list at approval. There is no other restriction on where an applicant lives.
+
+## Availability and support
+
+One server, one operator. The platform runs on a single Hetzner virtual machine in Germany, and one person runs it. There is no uptime figure, because there is nothing behind one: if the machine or the operator is unavailable, so is the service. We would rather say that than publish a number we cannot keep.
+
+Backups are nightly and encrypted, to a separate machine, and a restore is tested every week on a machine that is not this one. That answers a lost or corrupted server; it does not make one server highly available, and neither mailbox nor website should be treated as more available than one machine and one person can make it.
+
+Support is best effort. admin@kyriakon.net reaches the operator for anything, and abuse@kyriakon.net takes reports of abuse; neither carries a response-time guarantee. If the service goes down, the notice comes by mail from a machine that is not this one, because the mail you would read it on is the thing that is down.
+
+=> mailto:admin@kyriakon.net admin@kyriakon.net
+
+=> mailto:abuse@kyriakon.net abuse@kyriakon.net
+
+The full lists are published beside the configuration: what the platform will not build and cannot do is in refusals.md, and what it protects against, and does not, is in threat-model.md.
+
+=> https://github.com/kyriakon/kyriakon-infra/blob/main/docs/refusals.md refusals.md
+
+=> https://github.com/kyriakon/kyriakon-infra/blob/main/docs/threat-model.md threat-model.md
+
+> Secure email, server configuration you can audit yourself, and Orthodox admins you can actually meet.
+
+Audit us. Every non-secret piece of infrastructure config is published, including the configuration of the server you are reading this from.
+
+=> https://github.com/kyriakon/kyriakon-infra kyriakon-infra on GitHub
+
+=> mailto:hello@kyriakon.net hello@kyriakon.net
+
+=> gemini://kyriakon.net/ the capsule root
+
+=> https://kyriakon.net/hosting/ HTTPS mirror
