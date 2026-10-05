@@ -18,7 +18,7 @@ Prices are in pounds, and the number shown is the number charged. Where a local 
 
 One account with an address at kyriakon.net: a mailbox the platform cannot read, a static website and gemini capsule at yourname.kyriakon.net, and pass-compatible git repositories. 5 GB is shared across all of it.
 
-One address, for one person. Mail is live as soon as the account opens; the website waits on a certificate, which can take a day or three.
+One address, for one person. Mail is live as soon as the account opens; the website answers on HTTP straight away, and its HTTPS certificate can take a day or three.
 
 ### Your own domain, £40 a year
 
@@ -52,11 +52,11 @@ We cannot verify what made your key, only the shape it has. A key that would bre
 
 ## Web, gemini and git
 
-Static web. Your site answers at yourname.kyriakon.net over HTTPS. Upload files with sftp on port 22 using your key; there is no control panel. Pages are static, with no scripting, no database and no CGI.
+Static web. Your site answers at yourname.kyriakon.net over HTTPS, and over HTTP while its certificate is issued. Upload files with sftp on port 22 using your key; there is no control panel. Pages are static, with no scripting, no database and no CGI.
 
 gemini. Every hostname has a capsule, so your site is served a second way at gemini://yourname.kyriakon.net by gmid. This page has a capsule too.
 
-git. Your pass repositories live in your own tree and are reached over git-shell on port 2222 with the same key. The store is GPG-encrypted on your machine before it is pushed, so what arrives here is ciphertext and git metadata, never the plaintext. Kleio, the pass-compatible password manager we recommend, is one client for it.
+git. Your pass repositories live in your own tree and are reached over git-shell on port 2222 with the same key, at ssh://yourname@kyriakon.net:2222/repo.git. The store is GPG-encrypted on your machine before it is pushed, so what arrives here is ciphertext and git metadata, never the plaintext. Kleio, the pass-compatible password manager we recommend, is one client for it.
 
 => https://github.com/kyriakon/kleio Kleio source repository
 
@@ -76,7 +76,7 @@ The downloaded file and the written phrase belong in separate places. Keep the p
 
 1. Apply. One form at signup.kyriakon.net, on the web and on gemini. It asks for the username you want, a contact address, your mail public key, an optional upload key, and how you would rather pay. A few optional questions about what you will use the account for make approval quicker, and a monastic application needs the elder's blessing. There is a place to say that you cannot pay.
 2. A person reads it. Every application is read by the operator, and the optional answers are weighed. The outcomes are approval on the paid tier, approval without charge, or decline. There is no belief test. A decline always carries the way back: reply, and a word from your priest or from someone we already know usually settles it.
-3. Approval, then payment. Approval opens the account and the mailbox. Card payment goes through Stripe in the same session. Cash pays by post or in hand, and Monero goes to an address we make for your account; both of those get a reference token to send with the money, and card is the only rail that touches a payment processor. For Monero, the pound price is what you owe and the XMR figure is only its conversion, the quote holds for the payment window, and the payment is credited once the wallet sees ten confirmations.
+3. Approval, then payment. Approval opens the account and the mailbox. Card payment goes through Stripe in the same session. Cash pays by post or in hand, and takes a reference token to send with the money. Monero goes to an address we make for your account; that address is the reference, because Monero attributes a payment by its subaddress rather than by anything you attach, and it is yours permanently. Money sent to the wrong address, or with no address at all, is held and reconciled by hand rather than absorbed, and a refund returns in XMR to an address you give, or as credit against the next year. Card is the only rail that touches a payment processor. For Monero, the pound price is what you owe and the XMR figure is only its conversion, the quote holds for the payment window, and the payment is credited once the wallet sees ten confirmations.
 
 => gemini://signup.kyriakon.net the application capsule
 
@@ -86,7 +86,9 @@ You accept the terms, the acceptable use policy and the privacy notice on one ch
 
 You have fourteen days to pay. If the money does not arrive the account lapses: mail keeps arriving and stays readable, the website stays up, sending and uploading and pushing stop, and nothing is deleted. Paying restores it.
 
-Hosting waits on a certificate. Certificates are issued at a limited rate, so a new site can take a day or three to answer on HTTPS; the account page says so while it waits. Mail is live at approval.
+A new site answers on HTTP straight away. HTTPS waits on a certificate, and certificates are issued at a limited rate, so the padlock can take a day or three; the account page says so while it waits. Mail is live at approval.
+
+UK and rest-of-world applications open with the release. Union applications open once the two formalities behind them exist rather than at the release: the VAT registration for Union consumers, and the representative the Union's data-protection rules require.
 
 One limit on who may apply: applications from residents of countries under UK sanctions are declined, and the reviewer checks the consolidated list at approval. There is no other restriction on where an applicant lives.
 
