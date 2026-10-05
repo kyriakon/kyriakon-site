@@ -53,7 +53,7 @@ in [`DESIGN.md`](DESIGN.md). Shared vocabulary lives in the meta repo
 
 ```
 index.html          splash page (cards, trust line, footer)
-hosting/            under construction
+hosting/            hosting page (HTML + gemini mirror)
 press/              under construction
 kleio/              under construction
 src/input.css       Tailwind entry + theme tokens

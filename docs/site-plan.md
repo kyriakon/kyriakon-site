@@ -11,7 +11,8 @@ the OpenBSD box's `httpd` (proposal §9, Phase 2).
 - **Dev server**: `bun dev.ts` — serves at `http://localhost:8017`, rebuilds Tailwind on any
   HTML/`src/input.css` change, live-reloads via a polling `/__version` endpoint.
 - **Pages**: `index.html` (splash, 2/1 card layout — Hosting + Kyriakon Press side-by-side,
-  Kleio full-width below) + `/hosting/`, `/press/`, `/kleio/` under-construction pages
+  Kleio full-width below) + `/hosting/` (the written hosting page, mirrored at
+  `hosting/index.gmi`) and the `/press/` and `/kleio/` under-construction pages
   (fully centred on screen, "Still under construction - check back soon! 🏗️").
 - **Brand**: the ☧ Chi-Rho mark rendered as a text glyph (crimson, bold, `scale-x-125`,
   arrow cursor); favicon is `assets/favicon.svg` (crimson, `scale(1.25 1)`) with
