@@ -36,7 +36,7 @@
             <span class="font-medium text-ink/80">£20 a year</span>
           </div>
           <p class="mt-3 text-sm text-ink/80">One account with an address at kyriakon.net: a mailbox the platform cannot read, a static website and gemini capsule at <span class="text-ink">yourname.kyriakon.net</span>, and pass-compatible git repositories. 5 GB is shared across all of it.</p>
-          <p class="mt-3 border-t border-ink/10 pt-3 text-sm text-ink/70">One address, for one person. Mail is live as soon as the account opens; the website answers on HTTP straight away, and its HTTPS certificate can take a day or three.</p>
+          <p class="mt-3 border-t border-ink/10 pt-3 text-sm text-ink/70">One address, for one person. Mail is live as soon as the account opens; the website goes live when its certificate lands, a day or three after the account opens.</p>
         </article>
 
         <article class="rounded-xl border border-ink/10 bg-white/60 p-6">
@@ -79,7 +79,7 @@
 
     <section class="mt-14">
       <h2 class="font-display text-2xl font-semibold tracking-tight">Web, gemini and git</h2>
-      <p class="mt-4 text-ink/80"><span class="font-medium">Static web.</span> Your site answers at <span class="text-ink">yourname.kyriakon.net</span> over HTTPS, and over HTTP while its certificate is issued. Upload files with sftp on port 22 using your key; there is no control panel. Pages are static, with no scripting, no database and no CGI.</p>
+      <p class="mt-4 text-ink/80"><span class="font-medium">Static web.</span> Your site answers at <span class="text-ink">yourname.kyriakon.net</span> over HTTPS once its certificate is issued. Upload files with sftp on port 22 using your key; there is no control panel. Pages are static, with no scripting, no database and no CGI.</p>
       <p class="mt-4 text-ink/80"><span class="font-medium">gemini.</span> Every hostname has a capsule, so your site is served a second way at <span class="text-ink">gemini://yourname.kyriakon.net</span> by gmid. This page has a capsule too.</p>
       <p class="mt-4 text-ink/80"><span class="font-medium">git.</span> Your pass repositories live in your own tree and are reached over git-shell on port 2222 with the same key, at <span class="text-ink">ssh://yourname@kyriakon.net:2222/repo.git</span>. The store is GPG-encrypted on your machine before it is pushed, so what arrives here is ciphertext and git metadata, never the plaintext. <a href="https://github.com/kyriakon/kleio" class="font-medium text-crimson hover:underline">Kleio</a>, the pass-compatible password manager we recommend, is one client for it.</p>
       <p class="mt-4 text-ink/80">One upload key covers both sftp and git, and both are key-based, so without it you have mail and nothing else. The 5 GB is shared across mail, website, capsule and repositories. It is a soft limit, with a little headroom above it and a week to clear space before writes stop.</p>
@@ -102,7 +102,7 @@
       </ol>
       <p class="mt-4 text-ink/80">You accept the terms, the acceptable use policy and the privacy notice on one checkbox when you apply.</p>
       <p class="mt-4 text-ink/80">You have fourteen days to pay. If the money does not arrive the account lapses: mail keeps arriving and stays readable, the website stays up, sending and uploading and pushing stop, and nothing is deleted. Paying restores it.</p>
-      <p class="mt-4 text-ink/80">A new site answers on HTTP straight away. HTTPS waits on a certificate, and certificates are issued at a limited rate, so the padlock can take a day or three; the account page says so while it waits. Mail is live at approval.</p>
+      <p class="mt-4 text-ink/80">A new site goes live when its certificate lands. Certificates are issued at a limited rate, so the padlock can take a day or three; the account page says so while it waits. Mail is live at approval.</p>
       <p class="mt-4 text-ink/80">UK and rest-of-world applications open with the release. Union applications open once the two formalities behind them exist rather than at the release: the VAT registration for Union consumers, and the representative the Union's data-protection rules require.</p>
       <p class="mt-4 text-ink/80">One limit on who may apply: applications from residents of countries under UK sanctions are declined, and the reviewer checks the consolidated list at approval. There is no other restriction on where an applicant lives.</p>
     </section>

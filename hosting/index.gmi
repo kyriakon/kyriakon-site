@@ -18,7 +18,7 @@ Prices are in pounds, and the number shown is the number charged. Where a local 
 
 One account with an address at kyriakon.net: a mailbox the platform cannot read, a static website and gemini capsule at yourname.kyriakon.net, and pass-compatible git repositories. 5 GB is shared across all of it.
 
-One address, for one person. Mail is live as soon as the account opens; the website answers on HTTP straight away, and its HTTPS certificate can take a day or three.
+One address, for one person. Mail is live as soon as the account opens; the website goes live when its certificate lands, a day or three after the account opens.
 
 ### Your own domain, £40 a year
 
@@ -52,7 +52,7 @@ We cannot verify what made your key, only the shape it has. A key that would bre
 
 ## Web, gemini and git
 
-Static web. Your site answers at yourname.kyriakon.net over HTTPS, and over HTTP while its certificate is issued. Upload files with sftp on port 22 using your key; there is no control panel. Pages are static, with no scripting, no database and no CGI.
+Static web. Your site answers at yourname.kyriakon.net over HTTPS once its certificate is issued. Upload files with sftp on port 22 using your key; there is no control panel. Pages are static, with no scripting, no database and no CGI.
 
 gemini. Every hostname has a capsule, so your site is served a second way at gemini://yourname.kyriakon.net by gmid. This page has a capsule too.
 
@@ -86,7 +86,7 @@ You accept the terms, the acceptable use policy and the privacy notice on one ch
 
 You have fourteen days to pay. If the money does not arrive the account lapses: mail keeps arriving and stays readable, the website stays up, sending and uploading and pushing stop, and nothing is deleted. Paying restores it.
 
-A new site answers on HTTP straight away. HTTPS waits on a certificate, and certificates are issued at a limited rate, so the padlock can take a day or three; the account page says so while it waits. Mail is live at approval.
+A new site goes live when its certificate lands. Certificates are issued at a limited rate, so the padlock can take a day or three; the account page says so while it waits. Mail is live at approval.
 
 UK and rest-of-world applications open with the release. Union applications open once the two formalities behind them exist rather than at the release: the VAT registration for Union consumers, and the representative the Union's data-protection rules require.
 
