@@ -1,6 +1,6 @@
 # Kyriakon.net website — plan & decisions
 
-Status: **coming-soon placeholder** — the splash page is built, nothing is live yet.
+Status: **the splash is live; the hosting page is written and mirrored** — the splash page is built, nothing is live yet.
 Repo: `kyriakon-site`. Hosted on GitHub Pages to begin with; the long-term home is
 the OpenBSD box's `httpd` (proposal §9, Phase 2).
 
@@ -13,7 +13,7 @@ the OpenBSD box's `httpd` (proposal §9, Phase 2).
 - **Pages**: `index.html` (splash, 2/1 card layout — Hosting + Kyriakon Press side-by-side,
   Kleio full-width below) + `/hosting/` (the written hosting page, mirrored at
   `hosting/index.gmi`) and the `/press/` and `/kleio/` under-construction pages
-  (fully centred on screen, "Still under construction - check back soon! 🏗️").
+  (fully centred on screen, "Still under construction - check back soon! ").
 - **Brand**: the ☧ Chi-Rho mark rendered as a text glyph (crimson, bold, `scale-x-125`,
   arrow cursor); favicon is `assets/favicon.svg` (crimson, `scale(1.25 1)`) with
   `assets/favicon.png` as the PNG fallback, plus `assets/kyriakon-black.png` for the
