@@ -1,8 +1,9 @@
 # DESIGN.md — kyriakon-site
 
 Design system and visual decisions for the static marketing site. Source of truth is the
-scaffold itself (`index.html`, the `/hosting/` `/press/` `/kleio/` stubs, `src/input.css`,
-`assets/favicon.svg`); this document records the *why* so changes stay consistent.
+scaffold itself (`index.html`, the written `/hosting/` page and its `index.gmi` mirror,
+the `/press/` and `/kleio/` stubs, `src/input.css`, `assets/favicon.svg`); this document
+records the *why* so changes stay consistent.
 
 ## Principles
 
@@ -57,8 +58,10 @@ Defined in `src/input.css` as Tailwind v4 `@theme` CSS variables.
 - **Splash**: header → 2-column card grid (`sm:grid-cols-2`, gap `6`) → trust blockquote →
   footer. The Kleio card spans both columns (`sm:col-span-2`) and is a wider row, not a
   third grid cell.
-- **Sub-pages**: fully centered placeholder — mark, H1, "Still under construction" line, and a
-  `← Back` link, vertically centered with `min-h-screen`.
+- **Sub-pages**: `/press/` and `/kleio/` are fully centered placeholders: mark, H1, "Still under
+  construction" line, and a `← Back` link, vertically centered with `min-h-screen`. `/hosting/`
+  is a written page instead: a single `max-w-2xl` column of sections under the same mark and H1,
+  with no placeholder line.
 
 ## Components
 
@@ -107,7 +110,8 @@ Full-width `border-t border-ink/10`; left = "**Audit us.**" line, right = envelo
 | File | Purpose |
 |------|---------|
 | `index.html` | Splash page (header, 3 cards, blockquote, footer) |
-| `hosting/`, `press/`, `kleio/index.html` | Under-construction stubs, shared layout |
+| `hosting/` | Hosting page, HTML + gemini mirror (`index.gmi`) |
+| `press/`, `kleio/index.html` | Under-construction stubs, shared layout |
 | `src/input.css` | Tailwind entry — `@theme` tokens + one custom rule |
 | `assets/main.css` | Compiled output, committed |
 | `assets/favicon.svg` / `favicon.png` | Chi-Rho mark, SVG + PNG fallback |

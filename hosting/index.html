@@ -4,16 +4,138 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hosting - Kyriakon.net</title>
+  <meta name="description" content="Zero-access mail, a static website, a gemini capsule and pass repositories, run by one person on one server. Prices, limits and how to join, stated plainly.">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="stylesheet" href="/assets/main.css">
 </head>
 <body class="bg-paper text-ink font-body antialiased">
-  <main class="mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-center px-6 text-center">
-    <span class="inline-block cursor-default font-display text-6xl font-bold leading-none text-crimson scale-x-125" aria-hidden="true">☧</span>
-    <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">Hosting</h1>
-    <p class="mt-6 text-2xl font-medium text-ink/80">Still under construction - check back soon!<span class="ml-3" aria-hidden="true">🏗️</span></p>
-    <p class="mt-8"><a href="/" class="text-crimson hover:underline">← Back to Kyriakon.net</a></p>
+  <main class="mx-auto max-w-2xl px-6 py-16 sm:py-24">
+
+    <header class="text-center">
+      <span class="inline-block cursor-default font-display text-6xl font-bold leading-none text-crimson scale-x-125" aria-hidden="true">☧</span>
+      <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">Hosting</h1>
+      <p class="mt-4 text-lg text-ink/80">Mail the platform cannot read, a static website, a gemini capsule and pass repositories. Run by one person, on one server, for the Orthodox community.</p>
+    </header>
+
+    <section class="mt-14">
+      <h2 class="font-display text-2xl font-semibold tracking-tight">What this is</h2>
+      <p class="mt-4 text-ink/80">Kyriakon.net is a hosting platform for the Orthodox community, run by one person: a sole trader in the United Kingdom, on a single server. It is built on OpenBSD, an account has no interactive shell, and every non-secret piece of the configuration is published on <a href="https://github.com/kyriakon/kyriakon-infra" class="font-medium text-crimson hover:underline">GitHub</a> so that anyone can check the promises below against the thing that runs.</p>
+      <p class="mt-4 text-ink/80">Every member gets the same four things: mail the platform cannot read, a static website, a gemini capsule, and pass-compatible git repositories.</p>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="font-display text-2xl font-semibold tracking-tight">Prices and what you get</h2>
+      <p class="mt-4 text-ink/80">Prices are in pounds, and the number shown is the number charged. Where a local VAT rate applies to a Union member, it comes out of the price rather than being added to it. A paid subscription runs for one calendar year.</p>
+
+      <div class="mt-6 space-y-4">
+
+        <article class="rounded-xl border border-ink/10 bg-white/60 p-6">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h3 class="font-display text-xl font-semibold">Individual</h3>
+            <span class="font-medium text-ink/80">£20 a year</span>
+          </div>
+          <p class="mt-3 text-sm text-ink/80">One account with an address at kyriakon.net: a mailbox the platform cannot read, a static website and gemini capsule at <span class="text-ink">yourname.kyriakon.net</span>, and pass-compatible git repositories. 5 GB is shared across all of it.</p>
+          <p class="mt-3 border-t border-ink/10 pt-3 text-sm text-ink/70">One address, for one person. Mail is live as soon as the account opens; the website goes live when its certificate lands, a day or three after the account opens.</p>
+        </article>
+
+        <article class="rounded-xl border border-ink/10 bg-white/60 p-6">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h3 class="font-display text-xl font-semibold">Your own domain</h3>
+            <span class="font-medium text-ink/80">£40 a year</span>
+          </div>
+          <p class="mt-3 text-sm text-ink/80">Your own domain on the same infrastructure, for a parish, a monastery or a small Orthodox business: up to ten addresses, each mailbox carrying the standard 5 GB of its own, with mail, a website and a gemini capsule for that domain and a git repository for each account.</p>
+          <p class="mt-3 border-t border-ink/10 pt-3 text-sm text-ink/70">You apply your own DNS records from a recipe written for someone who is not a sysadmin: MX, SPF, the DKIM selector, DMARC and A/AAAA. We do not host your domain's zone, and a domain whose records stop pointing here loses its mail and its certificate. An address that is an alias shares one mailbox, one key and one allowance; a separate mailbox has its own. An eleventh address is a second domain, not another line on this one.</p>
+        </article>
+
+        <article class="rounded-xl border border-ink/10 bg-white/60 p-6">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h3 class="font-display text-xl font-semibold">A managed instance</h3>
+            <span class="font-medium text-ink/80">£150 a year, by enquiry</span>
+          </div>
+          <p class="mt-3 text-sm text-ink/80">A server of your own rather than a share of ours, on the same platform and the same terms. It is ordered by hand: write to <a href="mailto:admin@kyriakon.net" class="font-medium text-crimson hover:underline">admin@kyriakon.net</a> and we will arrange it with you.</p>
+          <p class="mt-3 border-t border-ink/10 pt-3 text-sm text-ink/70">There is no self-service order and no waiting list.</p>
+        </article>
+
+        <article class="rounded-xl border border-ink/10 bg-white/60 p-6">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h3 class="font-display text-xl font-semibold">No charge</h3>
+            <span class="font-medium text-ink/80">Not charged</span>
+          </div>
+          <p class="mt-3 text-sm text-ink/80">Clergy, monastics, and anyone who cannot afford it, are not charged. Ask on the application; a person decides, and no means test and no proof is asked for. Granted once, it is permanent and never re-asked, and the same 5 GB allowance applies.</p>
+          <p class="mt-3 text-sm text-ink/80">A monastic community or a parish without means arrives the same way as a person, by the same decision on the same application.</p>
+          <p class="mt-3 border-t border-ink/10 pt-3 text-sm text-ink/70">The offer stands as far as capacity allows. There is no fixed number of free accounts, and the operator reviews the free share once it passes about a fifth of the accounts. A free account ends only at your request, for a breach of the acceptable use policy, or if it is unreachable and unused for a year.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="font-display text-2xl font-semibold tracking-tight">Mail the platform cannot read</h2>
+      <p class="mt-4 text-ink/80">Mail is encrypted to your public key as it arrives, and no private key of yours is ever on the server. What sits on the server is ciphertext to us: an order compelling the operator to hand over your mail produces ciphertext and no key. Your private key is made on your own device and never submitted, and there is no webmail, so you read mail in a PGP-capable client on your own machine.</p>
+      <p class="mt-4 text-ink/80">What that does not cover is who wrote to whom, when and how large. Mail cannot be routed without that envelope, so it is visible in the logs and in the outer message wrapper, and our logs are kept for seven days. It does not cover a message in flight or a copy already delivered to someone else's server, and it does not survive losing both your device and your written recovery phrase: there is no reset here, and no one can restore your mail.</p>
+      <p class="mt-4 text-ink/80">We cannot verify what made your key, only the shape it has. A key that would break delivery is named in the signup and never used to refuse you, because a check we cannot verify would be a support queue rather than a guarantee.</p>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="font-display text-2xl font-semibold tracking-tight">Web, gemini and git</h2>
+      <p class="mt-4 text-ink/80"><span class="font-medium">Static web.</span> Your site answers at <span class="text-ink">yourname.kyriakon.net</span> over HTTPS once its certificate is issued. Upload files with sftp on port 22 using your key; there is no control panel. Pages are static, with no scripting, no database and no CGI.</p>
+      <p class="mt-4 text-ink/80"><span class="font-medium">gemini.</span> Every hostname has a capsule, so your site is served a second way at <span class="text-ink">gemini://yourname.kyriakon.net</span> by gmid. This page has a capsule too.</p>
+      <p class="mt-4 text-ink/80"><span class="font-medium">git.</span> Your pass repositories live in your own tree and are reached over git-shell on port 2222 with the same key, at <span class="text-ink">ssh://yourname@kyriakon.net:2222/repo.git</span>. The store is GPG-encrypted on your machine before it is pushed, so what arrives here is ciphertext and git metadata, never the plaintext. <a href="https://github.com/kyriakon/kleio" class="font-medium text-crimson hover:underline">Kleio</a>, the pass-compatible password manager we recommend, is one client for it.</p>
+      <p class="mt-4 text-ink/80">One upload key covers both sftp and git, and both are key-based, so without it you have mail and nothing else. The 5 GB is shared across mail, website, capsule and repositories. It is a soft limit, with a little headroom above it and a week to clear space before writes stop.</p>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="font-display text-2xl font-semibold tracking-tight">Your key</h2>
+      <p class="mt-4 text-ink/80">You need two: a mail key, so mail can be encrypted to you, and an upload key, for the website and the repositories. Our walkthrough is written for someone who has never made a key. It covers Thunderbird on a desktop, where to find the public key to export, and where the private key and its passphrase live afterwards.</p>
+      <p class="mt-4 text-ink/80">If you would rather keep away from a terminal, the walkthrough also offers a generator that makes the key in your browser. It is our own code: a small Rust crate in the repository, compiled to a WASM module and served from our own static tree, with no third-party script. The private key never leaves the page. It gives you the private key as a file to download, an eight-word passphrase to write down as your recovery phrase, and the public key to submit, and it can make the upload key as well.</p>
+      <p class="mt-4 text-ink/80">The generator never sends the private key, the passphrase or anything else anywhere, and you can check that yourself: the source is published, and the page makes no external request. A separate key-check page runs the same code, so you can test a key before you apply or before you rotate to it, and nothing you paste into it is uploaded.</p>
+      <p class="mt-4 text-ink/80">The downloaded file and the written phrase belong in separate places. Keep the phrase somewhere you would still have it if the device holding the file were lost. And since we see the shape of a key rather than what produced it, the application names anything that will break delivery and lets you continue regardless.</p>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="font-display text-2xl font-semibold tracking-tight">Joining</h2>
+      <ol class="mt-4 space-y-4 text-ink/80">
+        <li><span class="font-medium text-ink">Apply.</span> One form at <a href="https://signup.kyriakon.net" class="font-medium text-crimson hover:underline">signup.kyriakon.net</a>, on the web and on gemini. It asks for the username you want, a contact address, your mail public key, an optional upload key, and how you would rather pay. A few optional questions about what you will use the account for make approval quicker, and a monastic application needs the elder's blessing. There is a place to say that you cannot pay.</li>
+        <li><span class="font-medium text-ink">A person reads it.</span> Every application is read by the operator, and the optional answers are weighed. The outcomes are approval on the paid tier, approval without charge, or decline. There is no belief test. A decline always carries the way back: reply, and a word from your priest or from someone we already know usually settles it.</li>
+        <li><span class="font-medium text-ink">Approval, then payment.</span> Approval opens the account and the mailbox. Card payment goes through Stripe in the same session. Cash pays by post or in hand, and takes a reference token to send with the money. Monero goes to an address we make for your account; that address is the reference, because Monero attributes a payment by its subaddress rather than by anything you attach, and it is yours permanently. Money sent to the wrong address, or with no address at all, is held and reconciled by hand rather than absorbed, and a refund returns in XMR to an address you give, or as credit against the next year. Card is the only rail that touches a payment processor. For Monero, the pound price is what you owe and the XMR figure is only its conversion, the quote holds for the payment window, and the payment is credited once the wallet sees ten confirmations.</li>
+      </ol>
+      <p class="mt-4 text-ink/80">You accept the terms, the acceptable use policy and the privacy notice on one checkbox when you apply.</p>
+      <p class="mt-4 text-ink/80">You have fourteen days to pay. If the money does not arrive the account lapses: mail keeps arriving and stays readable, the website stays up, sending and uploading and pushing stop, and nothing is deleted. Paying restores it.</p>
+      <p class="mt-4 text-ink/80">A new site goes live when its certificate lands. Certificates are issued at a limited rate, so the padlock can take a day or three; the account page says so while it waits. Mail is live at approval.</p>
+      <p class="mt-4 text-ink/80">UK and rest-of-world applications open with the release. Union applications open once the two formalities behind them exist rather than at the release: the VAT registration for Union consumers, and the representative the Union's data-protection rules require.</p>
+      <p class="mt-4 text-ink/80">One limit on who may apply: applications from residents of countries under UK sanctions are declined, and the reviewer checks the consolidated list at approval. There is no other restriction on where an applicant lives.</p>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="font-display text-2xl font-semibold tracking-tight">Availability and support</h2>
+      <p class="mt-4 text-ink/80">One server, one operator. The platform runs on a single Hetzner virtual machine in Germany, and one person runs it. There is no uptime figure, because there is nothing behind one: if the machine or the operator is unavailable, so is the service. We would rather say that than publish a number we cannot keep.</p>
+      <p class="mt-4 text-ink/80">Backups are nightly and encrypted, to a separate machine, and a restore is tested every week on a machine that is not this one. That answers a lost or corrupted server; it does not make one server highly available, and neither mailbox nor website should be treated as more available than one machine and one person can make it.</p>
+      <p class="mt-4 text-ink/80">Support is best effort. <a href="mailto:admin@kyriakon.net" class="font-medium text-crimson hover:underline">admin@kyriakon.net</a> reaches the operator for anything, and <a href="mailto:abuse@kyriakon.net" class="font-medium text-crimson hover:underline">abuse@kyriakon.net</a> takes reports of abuse; neither carries a response-time guarantee. If the service goes down, the notice comes by mail from a machine that is not this one, because the mail you would read it on is the thing that is down.</p>
+      <p class="mt-4 text-ink/80">The full lists are published beside the configuration: what the platform will not build and cannot do is in <a href="https://github.com/kyriakon/kyriakon-infra/blob/main/docs/refusals.md" class="font-medium text-crimson hover:underline">refusals.md</a>, and what it protects against and what it does not is in <a href="https://github.com/kyriakon/kyriakon-infra/blob/main/docs/threat-model.md" class="font-medium text-crimson hover:underline">threat-model.md</a>.</p>
+    </section>
+
+    <section class="mt-16">
+      <blockquote class="mx-auto max-w-xl border-l-4 border-ink/25 pl-6 font-display text-xl italic text-ink/80">
+        Secure email, server configuration you can audit yourself, and Orthodox admins you can actually meet.
+      </blockquote>
+    </section>
+
+    <p class="mt-10 text-center"><a href="/" class="text-crimson hover:underline">← Back to Kyriakon.net</a></p>
+
   </main>
+
+  <footer class="border-t border-ink/10">
+    <div class="mx-auto flex max-w-2xl flex-col gap-2 px-6 py-8 text-sm text-ink sm:flex-row sm:items-center sm:justify-between">
+      <p><strong>Audit us.</strong> Every non-secret piece of infrastructure config is published on <a href="https://github.com/kyriakon/kyriakon-infra" class="font-bold underline hover:text-crimson">GitHub</a>.</p>
+      <p class="flex items-center gap-1.5">
+        <svg class="h-4 w-4 shrink-0 text-ink/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <path d="m3 7 9 6 9-6"/>
+        </svg>
+        <a href="mailto:hello@kyriakon.net" class="font-bold text-ink underline hover:text-crimson">hello@kyriakon.net</a>
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
